@@ -4,26 +4,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@drawable/login"
+    android:padding="46dp"
+    android:gravity="center_horizontal">
 
+    <!-- Email Input -->
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+        android:background="@color/cardview_dark_background"
+        android:padding="16dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="#CCFFFFFF"
+        android:drawableLeft="@drawable/user"
+        android:drawablePadding="6dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginHorizontal="24dp"
+        android:elevation="4dp"/>
 
+    <!-- Password Input -->
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:background="@color/cardview_dark_background"
+        android:padding="16dp"
+        android:drawableLeft="@drawable/pwd"
+        android:drawablePadding="6dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="#CCFFFFFF"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="24dp"
+        android:elevation="4dp"/>
 
+    <!-- Login Button -->
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:layout_marginTop="16dp"/>
+        android:background="@drawable/button_background"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:layout_marginTop="48dp"
+        android:layout_marginHorizontal="24dp"
+        android:elevation="8dp"
+        android:stateListAnimator="@null"/>
+
 </LinearLayout>

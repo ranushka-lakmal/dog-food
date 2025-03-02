@@ -3,18 +3,24 @@ package com.example.dogfoodapp.database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "UserDB";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String TABLE_USERS = "users";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_PASSWORD = "password";
     private static final String KEY_USER_TYPE = "user_type";
     private static final String KEY_LOCATION = "location";
     private static final String KEY_PAYMENT_TYPE = "payment_type";
+
+    private static final String TABLE_CATEGORIES = "categories";
+    private static final String KEY_CAT_ID = "cat_id";
+    private static final String KEY_CAT_NAME = "cat_name";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -28,12 +34,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + KEY_USER_TYPE + " TEXT,"
                 + KEY_LOCATION + " TEXT,"
                 + KEY_PAYMENT_TYPE + " TEXT" + ")";
+
+        //categories table create karanawa
+        String CREATE_CATEGORIES_TABLE = "CREATE TABLE " + TABLE_CATEGORIES + "("
+                + KEY_CAT_ID + " TEXT PRIMARY KEY,"
+                + KEY_CAT_NAME + " TEXT" + ")";
+
+
+        //add execute
         db.execSQL(CREATE_USERS_TABLE);
+        db.execSQL(CREATE_CATEGORIES_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CATEGORIES);
         onCreate(db);
     }
 
@@ -73,5 +89,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return userType;
         }
         return "";
+    }
+
+//    public boolean addCategory(String catId, String catName) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//        values.put(KEY_CAT_ID, catId);
+//        values.put(KEY_CAT_NAME, catName);
+//
+//        long result = db.insert(TABLE_CATEGORIES, null, values);
+//        return result != -1;
+//    }
+
+    public boolean addCategory(String catId, String catName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_CAT_ID, catId);
+        values.put(KEY_CAT_NAME, catName);
+
+        try {
+            long result = db.insertOrThrow(TABLE_CATEGORIES, null, values);
+            return result != -1;
+        } catch (SQLException e) {
+            Log.e("DB_ERROR", "Error inserting category: " + e.getMessage());
+            return false;
+        }
+    }
+
+    public Cursor getAllCategories() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + TABLE_CATEGORIES, null);
     }
 }

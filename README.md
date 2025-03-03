@@ -46,4 +46,4 @@ Dog Food Finder is a mobile application developed using **Java, SQLite, and Andr
 ## 🤝 Contributing
 Contributions are welcome! Feel free to fork the repository and submit a pull request.
 
-##Thank You !❤️‍🔥🫡
+## Thank You !❤️‍🔥🫡

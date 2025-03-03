@@ -10,8 +10,9 @@ import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
+
     private static final String DATABASE_NAME = "UserDB";
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
     private static final String TABLE_USERS = "users";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_PASSWORD = "password";
@@ -24,12 +25,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String KEY_CAT_NAME = "cat_name";
 
     // Add these constants
-    private static final String TABLE_PRODUCTS = "products";
-    private static final String KEY_PRODUCT_ID = "product_id";
-    private static final String KEY_PRODUCT_NAME = "product_name";
-    private static final String KEY_CATEGORY_ID = "category_id";
-    private static final String KEY_PRICE = "price";
-    private static final String KEY_QUANTITY = "quantity";
+    public static final String TABLE_PRODUCTS = "products";
+    public static final String KEY_PRODUCT_ID = "product_id";
+    public static final String KEY_PRODUCT_NAME = "product_name";
+    public static final String KEY_CATEGORY_ID = "category_id";
+    public static final String KEY_PRICE = "price";
+    public static final String KEY_QUANTITY = "quantity";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -182,6 +183,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
+    public Cursor getAllProducts() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.query(TABLE_PRODUCTS,
+                new String[]{KEY_PRODUCT_ID, KEY_PRODUCT_NAME, KEY_PRICE, KEY_QUANTITY},
+                null, null, null, null, null);
+    }
 
+    public boolean updateProduct(String productId, String newName, double newPrice, int newQuantity) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_PRODUCT_NAME, newName);
+        values.put(KEY_PRICE, newPrice);
+        values.put(KEY_QUANTITY, newQuantity);
+
+        int result = db.update(TABLE_PRODUCTS, values,
+                KEY_PRODUCT_ID + " = ?", new String[]{productId});
+        return result > 0;
+    }
+
+    public boolean deleteProduct(String productId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int result = db.delete(TABLE_PRODUCTS,
+                KEY_PRODUCT_ID + " = ?", new String[]{productId});
+        return result > 0;
+    }
 
 }

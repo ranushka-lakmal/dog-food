@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="24dp"
     android:background="@drawable/admin_bg_gradient"
     android:gravity="center">
 
@@ -13,21 +13,22 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="WELCOME"
+        android:text="WELCOME ADMIN"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
-        android:layout_marginBottom="50dp"/>
+        android:letterSpacing="0.05"
+        android:layout_marginBottom="32dp"/>
 
     <!-- Buttons Container -->
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="2"
-        android:rowCount="1"
+        android:rowCount="2"
         android:alignmentMode="alignMargins"
         android:columnOrderPreserved="false"
-        android:padding="16dp">
+        android:padding="1dp">
 
         <!-- Category Card -->
         <androidx.cardview.widget.CardView
@@ -39,19 +40,22 @@
             app:cardCornerRadius="16dp"
             app:cardElevation="8dp">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCategory"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Category"
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textColor="@color/white"
-                android:background="@drawable/category_button_bg"
-                android:drawableTop="@drawable/ic_category"
-                android:drawableTint="@color/white"
+                android:backgroundTint="@color/green_500"
+                android:icon="@drawable/ic_category"
+                app:iconGravity="textTop"
+                app:iconSize="64dp"
+                app:iconPadding="8dp"
+                app:cornerRadius="16dp"
                 android:gravity="center"
-                android:padding="16dp" />
+                android:padding="16dp"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -69,18 +73,20 @@
                 android:id="@+id/btnProduct"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Product"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:background="@color/orange_500"
-                android:drawableTop="@drawable/ic_product"
-                android:drawableTint="@color/white"
+                android:backgroundTint="@color/orange_500"
                 android:gravity="center"
-                android:padding="16dp"/>
+                android:icon="@drawable/ic_product"
+                android:padding="16dp"
+                android:text="Product"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="16dp"
+                app:iconGravity="textTop"
+                app:iconPadding="8dp"
+                app:iconSize="64dp" />
 
         </androidx.cardview.widget.CardView>
-
 
         <!-- Manage Categories Card -->
         <androidx.cardview.widget.CardView
@@ -96,15 +102,17 @@
                 android:id="@+id/btnManageCategories"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Manage Categories"
-                android:textSize="18sp"
+                android:text="Manage Category"
+                android:textStyle="bold"
+                android:textSize="16sp"
                 android:textColor="@color/white"
-                android:icon="@drawable/ic_manage"
+                android:backgroundTint="@color/blue_500"
+                android:icon="@drawable/ic_product"
                 app:iconGravity="textTop"
-                app:iconSize="64dp"
                 app:iconPadding="8dp"
-                app:backgroundTint="@color/blue_500"
-                app:cornerRadius="16dp"/>
+                app:cornerRadius="16dp"
+                android:gravity="center"
+                android:padding="16dp"/>
 
         </androidx.cardview.widget.CardView>
 

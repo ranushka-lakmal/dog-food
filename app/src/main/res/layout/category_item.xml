@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="#33000000">
+
+    <TextView
+        android:id="@+id/tvCatId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/tvCatName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_toRightOf="@id/tvCatId"
+        android:layout_marginStart="16dp"/>
+
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/blue_500"/>
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:layout_toStartOf="@id/btnEdit"
+        android:backgroundTint="@color/red_500"/>
+
+</RelativeLayout>

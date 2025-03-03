@@ -9,8 +9,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
+
     private static final String DATABASE_NAME = "UserDB";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 4;
     private static final String TABLE_USERS = "users";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_PASSWORD = "password";
@@ -19,8 +20,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_PAYMENT_TYPE = "payment_type";
 
     private static final String TABLE_CATEGORIES = "categories";
-    private static final String KEY_CAT_ID = "cat_id";
-    private static final String KEY_CAT_NAME = "cat_name";
+    public static final String KEY_CAT_ID = "cat_id";
+    public static final String KEY_CAT_NAME = "cat_name";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -35,16 +36,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + KEY_LOCATION + " TEXT,"
                 + KEY_PAYMENT_TYPE + " TEXT" + ")";
 
-        //categories table create karanawa
+
         String CREATE_CATEGORIES_TABLE = "CREATE TABLE " + TABLE_CATEGORIES + "("
-                + KEY_CAT_ID + " TEXT PRIMARY KEY,"
+                + "_id INTEGER PRIMARY KEY AUTOINCREMENT,"  // Add this line
+                + KEY_CAT_ID + " TEXT,"
                 + KEY_CAT_NAME + " TEXT" + ")";
+
+        db.execSQL(CREATE_CATEGORIES_TABLE);
 
 
         //add execute
         db.execSQL(CREATE_USERS_TABLE);
-        db.execSQL(CREATE_CATEGORIES_TABLE);
+//        db.execSQL(CREATE_CATEGORIES_TABLE);
     }
+
+    private static final String CREATE_CATEGORIES_TABLE = "CREATE TABLE " + TABLE_CATEGORIES + "("
+            + "_id INTEGER PRIMARY KEY AUTOINCREMENT,"  // Add this line
+            + KEY_CAT_ID + " TEXT,"
+            + KEY_CAT_NAME + " TEXT" + ")";
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -118,6 +127,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getAllCategories() {
         SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery("SELECT * FROM " + TABLE_CATEGORIES, null);
+        return db.rawQuery("SELECT _id, cat_id, cat_name FROM " + TABLE_CATEGORIES, null);
     }
 }

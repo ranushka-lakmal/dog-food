@@ -44,18 +44,19 @@
                 android:id="@+id/btnCategory"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Category"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:textColor="@color/white"
+                android:background="#170E0E"
                 android:backgroundTint="@color/green_500"
-                android:icon="@drawable/ic_category"
-                app:iconGravity="textTop"
-                app:iconSize="64dp"
-                app:iconPadding="8dp"
-                app:cornerRadius="16dp"
                 android:gravity="center"
-                android:padding="16dp"/>
+                android:icon="@drawable/ic_category"
+                android:padding="16dp"
+                android:text="Add Category"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="16dp"
+                app:iconGravity="textTop"
+                app:iconPadding="8dp"
+                app:iconSize="64dp" />
 
         </androidx.cardview.widget.CardView>
 
@@ -73,14 +74,16 @@
                 android:id="@+id/btnProduct"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/orange_500"
+                android:background="#2196F3"
+                android:backgroundTint="@color/blue_500"
                 android:gravity="center"
                 android:icon="@drawable/ic_product"
                 android:padding="16dp"
-                android:text="Product"
+                android:text="Add Product"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                app:backgroundTintMode="add"
                 app:cornerRadius="16dp"
                 app:iconGravity="textTop"
                 app:iconPadding="8dp"
@@ -102,20 +105,50 @@
                 android:id="@+id/btnManageCategories"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Manage Category"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:textColor="@color/white"
+                android:background="#2196F3"
                 android:backgroundTint="@color/blue_500"
-                android:icon="@drawable/ic_product"
-                app:iconGravity="textTop"
-                app:iconPadding="8dp"
-                app:cornerRadius="16dp"
                 android:gravity="center"
-                android:padding="16dp"/>
+                android:icon="@drawable/ic_product"
+                android:padding="16dp"
+                android:text="Manage Category"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTintMode="add"
+                app:cornerRadius="16dp"
+                app:iconGravity="textTop"
+                app:iconPadding="8dp" />
 
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnManageProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#A02B2B"
+                android:backgroundTint="@color/purple_500"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Manage Product"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTintMode="src_over"
+                app:cornerRadius="16dp"
+                app:iconGravity="textTop"
+                app:iconPadding="8dp"
+                app:iconSize="64dp" />
+
+        </androidx.cardview.widget.CardView>
     </GridLayout>
 
 </LinearLayout>

@@ -28,6 +28,8 @@
         <activity android:name=".CategoryActivity" />
         <activity android:name=".ManageCategoryActivity" />
         <activity android:name=".AddProductActivity" />
+        <activity android:name=".ManageProductActivity" android:exported="false" />
+
 
 
     </application>

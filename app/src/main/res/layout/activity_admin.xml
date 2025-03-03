@@ -65,7 +65,7 @@
             app:cardCornerRadius="16dp"
             app:cardElevation="8dp">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnProduct"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -82,6 +82,31 @@
         </androidx.cardview.widget.CardView>
 
 
+        <!-- Manage Categories Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnManageCategories"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Manage Categories"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:icon="@drawable/ic_manage"
+                app:iconGravity="textTop"
+                app:iconSize="64dp"
+                app:iconPadding="8dp"
+                app:backgroundTint="@color/blue_500"
+                app:cornerRadius="16dp"/>
+
+        </androidx.cardview.widget.CardView>
 
     </GridLayout>
 

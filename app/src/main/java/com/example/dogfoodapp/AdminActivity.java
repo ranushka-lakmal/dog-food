@@ -6,6 +6,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.button.MaterialButton;
+
 public class AdminActivity extends AppCompatActivity {
 
     @Override
@@ -15,6 +17,8 @@ public class AdminActivity extends AppCompatActivity {
 
         Button btnCategory = findViewById(R.id.btnCategory);
         Button btnProduct = findViewById(R.id.btnProduct);
+        MaterialButton btnManageCategories = findViewById(R.id.btnManageCategories);
+       // Button btnManageCategories = findViewById(R.id.btnManageCategories);
 
         btnCategory.setOnClickListener(v -> {
             startActivity(new Intent(AdminActivity.this, CategoryActivity.class));
@@ -24,5 +28,14 @@ public class AdminActivity extends AppCompatActivity {
             // Start Product Management Activity
             startActivity(new Intent(this, ProductActivity.class));
         });
+
+        btnManageCategories.setOnClickListener(v -> {
+            // Navigate to ManageCategoryActivity
+            startActivity(new Intent(AdminActivity.this, ManageCategoryActivity.class));
+        });
+
+//        btnManageCategories.setOnClickListener(v -> {
+//            startActivity(new Intent(AdminActivity.this, ManageCategoryActivity.class));
+//        });
     }
 }

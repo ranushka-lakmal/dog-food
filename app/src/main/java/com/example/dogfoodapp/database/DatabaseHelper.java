@@ -129,4 +129,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT _id, cat_id, cat_name FROM " + TABLE_CATEGORIES, null);
     }
+
+
+    public boolean updateCategory(String oldCatId, String newCatId, String newCatName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_CAT_ID, newCatId);
+        values.put(KEY_CAT_NAME, newCatName);
+
+        int result = db.update(TABLE_CATEGORIES, values, KEY_CAT_ID + " = ?", new String[]{oldCatId});
+        return result > 0;
+    }
+
+    public boolean deleteCategory(String catId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int result = db.delete(TABLE_CATEGORIES, KEY_CAT_ID + " = ?", new String[]{catId});
+        return result > 0;
+    }
+
 }

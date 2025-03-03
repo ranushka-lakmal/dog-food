@@ -27,7 +27,7 @@
     <activity android:name=".AdminActivity" />
         <activity android:name=".CategoryActivity" />
         <activity android:name=".ManageCategoryActivity" />
-
+        <activity android:name=".AddProductActivity" />
 
 
     </application>

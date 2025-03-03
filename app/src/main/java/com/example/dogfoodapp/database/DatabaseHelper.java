@@ -11,7 +11,7 @@ import android.util.Log;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "UserDB";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
     private static final String TABLE_USERS = "users";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_PASSWORD = "password";
@@ -22,6 +22,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_CATEGORIES = "categories";
     public static final String KEY_CAT_ID = "cat_id";
     public static final String KEY_CAT_NAME = "cat_name";
+
+    // Add these constants
+    private static final String TABLE_PRODUCTS = "products";
+    private static final String KEY_PRODUCT_ID = "product_id";
+    private static final String KEY_PRODUCT_NAME = "product_name";
+    private static final String KEY_CATEGORY_ID = "category_id";
+    private static final String KEY_PRICE = "price";
+    private static final String KEY_QUANTITY = "quantity";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -42,12 +50,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + KEY_CAT_ID + " TEXT,"
                 + KEY_CAT_NAME + " TEXT" + ")";
 
+        String CREATE_PRODUCTS_TABLE = "CREATE TABLE " + TABLE_PRODUCTS + "("
+                + KEY_PRODUCT_ID + " TEXT PRIMARY KEY,"
+                + KEY_PRODUCT_NAME + " TEXT,"
+                + KEY_CATEGORY_ID + " TEXT,"
+                + KEY_PRICE + " REAL,"
+                + KEY_QUANTITY + " INTEGER" + ")";
+
+
+        db.execSQL(CREATE_PRODUCTS_TABLE);
         db.execSQL(CREATE_CATEGORIES_TABLE);
-
-
         //add execute
         db.execSQL(CREATE_USERS_TABLE);
-//        db.execSQL(CREATE_CATEGORIES_TABLE);
+
     }
 
     private static final String CREATE_CATEGORIES_TABLE = "CREATE TABLE " + TABLE_CATEGORIES + "("
@@ -125,11 +140,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+//    public Cursor getAllCategories() {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        return db.rawQuery("SELECT _id, cat_id, cat_name FROM " + TABLE_CATEGORIES, null);
+//    }
+
+
     public Cursor getAllCategories() {
         SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery("SELECT _id, cat_id, cat_name FROM " + TABLE_CATEGORIES, null);
+        return db.query(TABLE_CATEGORIES,
+                new String[]{KEY_CAT_ID, KEY_CAT_NAME},
+                null, null, null, null, null);
     }
-
 
     public boolean updateCategory(String oldCatId, String newCatId, String newCatName) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -146,5 +168,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int result = db.delete(TABLE_CATEGORIES, KEY_CAT_ID + " = ?", new String[]{catId});
         return result > 0;
     }
+
+    public boolean addProduct(String productId, String productName, String categoryId, double price, int quantity) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_PRODUCT_ID, productId);
+        values.put(KEY_PRODUCT_NAME, productName);
+        values.put(KEY_CATEGORY_ID, categoryId);
+        values.put(KEY_PRICE, price);
+        values.put(KEY_QUANTITY, quantity);
+
+        long result = db.insert(TABLE_PRODUCTS, null, values);
+        return result != -1;
+    }
+
+
 
 }

@@ -25,8 +25,7 @@ public class AdminActivity extends AppCompatActivity {
         });
 
         btnProduct.setOnClickListener(v -> {
-            // Start Product Management Activity
-            startActivity(new Intent(this, ProductActivity.class));
+            startActivity(new Intent(AdminActivity.this, AddProductActivity.class));
         });
 
         btnManageCategories.setOnClickListener(v -> {

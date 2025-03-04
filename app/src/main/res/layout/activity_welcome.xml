@@ -1,14 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/admin_bg_gradient"
+    android:gravity="center">
 
+    <!-- Welcome Text -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome User!"
-        android:textSize="24sp"/>
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.05"
+        android:layout_marginBottom="32dp"/>
+
+    <!-- Buttons Container -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="1"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false"
+        android:padding="1dp">
+
+        <!-- Buy Product Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBuyProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Buy Product"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/green_500"
+                android:icon="@drawable/buy"
+            app:iconGravity="textTop"
+            app:iconSize="64dp"
+            app:iconPadding="8dp"
+            app:iconTint="@color/white"
+            app:cornerRadius="16dp"
+            android:gravity="center"
+            android:padding="16dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- View Order Cart Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnViewCart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="View Order Cart"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/blue_500"
+                android:icon="@drawable/cart"
+            app:iconGravity="textTop"
+            app:iconSize="64dp"
+            app:iconPadding="8dp"
+            app:iconTint="@color/white"
+            app:cornerRadius="16dp"
+            android:gravity="center"
+            android:padding="16dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+
 </LinearLayout>

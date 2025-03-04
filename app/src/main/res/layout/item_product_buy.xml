@@ -22,27 +22,66 @@
             android:text="Product Name"
             android:textSize="18sp"
             android:textColor="@color/black"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:gravity="center"/>
 
-        <!-- Product Price -->
+        <!-- Product Category -->
         <TextView
-            android:id="@+id/tvPrice"
+            android:id="@+id/tvCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Price: $0.00"
+            android:text="Category"
             android:textSize="14sp"
             android:textColor="@color/gray_600"
+            android:gravity="center"
             android:layout_marginTop="4dp"/>
 
-        <!-- Product Quantity -->
-        <TextView
-            android:id="@+id/tvQuantity"
+        <!-- Quantity Selector -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Quantity: 0"
-            android:textSize="14sp"
-            android:textColor="@color/gray_600"
-            android:layout_marginTop="4dp"/>
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="8dp">
 
+            <!-- Decrease Quantity Button -->
+            <ImageButton
+                android:id="@+id/btnDecrease"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_remove"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/black"/>
+
+            <!-- Quantity Display -->
+            <TextView
+                android:id="@+id/tvQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginHorizontal="16dp"/>
+
+            <!-- Increase Quantity Button -->
+            <ImageButton
+                android:id="@+id/btnIncrease"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_add"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/black"/>
+        </LinearLayout>
+
+        <!-- Add to Cart Button -->
+        <Button
+            android:id="@+id/btnAddToCart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add to Cart"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/green_500"
+            android:layout_marginTop="16dp"
+            android:elevation="4dp"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

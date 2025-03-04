@@ -8,16 +8,17 @@
     android:background="@drawable/radiant_background"
     tools:context=".BuyProductActivity">
 
-<androidx.recyclerview.widget.RecyclerView
-android:id="@+id/rvProducts"
-android:layout_width="0dp"
-android:layout_height="0dp"
-android:layout_margin="16dp"
-android:scrollbars="vertical"
-app:layout_constraintBottom_toBottomOf="parent"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toTopOf="parent"
-tools:listitem="@layout/item_product_buy" />
+    <!-- RecyclerView for Grid Layout -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvProducts"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_product_buy" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

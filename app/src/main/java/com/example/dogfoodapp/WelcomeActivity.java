@@ -19,8 +19,14 @@ public class WelcomeActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+//        Button btnOrderCart = findViewById(R.id.btnViewCart);
+//        btnOrderCart.setOnClickListener(v -> {
+//        });
+
         Button btnOrderCart = findViewById(R.id.btnViewCart);
         btnOrderCart.setOnClickListener(v -> {
+            Intent intent = new Intent(WelcomeActivity.this, ViewCartActivity.class);
+            startActivity(intent);
         });
     }
 }

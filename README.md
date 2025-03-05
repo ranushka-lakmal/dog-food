@@ -2,7 +2,22 @@
 
 # Dog Food Finder App
 
-<img width="348" alt="image" src="https://github.com/user-attachments/assets/56900d25-4c6f-4a4f-a382-d59a90ab2bf7" />
+<img width="348" alt="image" src="https://github.com/user-attachments/assets/a9ab1af9-92b1-49a9-a100-9f360d9b656a" />
+
+<img width="348" alt="image" src="https://github.com/user-attachments/assets/796d7ab4-88a3-4ec3-bc6e-a5cb4f30dea5" />
+<img width="348" alt="image" src="https://github.com/user-attachments/assets/b08550bd-4834-4f36-9a34-6b67bb63730c" />
+
+<img width="348" alt="image" src="https://github.com/user-attachments/assets/e4f32688-ec32-4513-b7d2-bf69786cd158" />
+<img width="348" alt="image" src="https://github.com/user-attachments/assets/831ca7cd-699b-47c9-a8c2-768577d4d731" />
+<img width="348" alt="image" src="https://github.com/user-attachments/assets/79d1447d-c6cb-49d0-9b23-c81bc165daab" />
+<img width="348" alt="image" src="https://github.com/user-attachments/assets/0ae84cb2-9a68-47d4-b00e-c48c5a614e07" />
+
+
+<img width="348" alt="image" src="https://github.com/user-attachments/assets/09d71485-f4f2-484b-900d-1bee58fe36c3" />
+<img width="348" alt="image" src="https://github.com/user-attachments/assets/00610de0-21ab-44c6-bd13-94b32ee92c93" />
+<img width="348" alt="image" src="https://github.com/user-attachments/assets/0921d76c-fbf7-4c6e-88fb-63bffb7f7c6b" />
+<img width="348" alt="image" src="https://github.com/user-attachments/assets/63aac71e-dd7b-4aac-8e6b-cf7a62fb16d8" />
+
 
 <img width="348" alt="image" src="https://github.com/user-attachments/assets/dbe94878-641d-44c1-9a7c-8a1e99cda2fd" />
 

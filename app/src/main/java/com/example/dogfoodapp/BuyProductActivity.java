@@ -118,11 +118,24 @@ public class BuyProductActivity extends AppCompatActivity {
             });
 
             // Add to Cart button
+//            holder.btnAddToCart.setOnClickListener(v -> {
+//                int quantity = Integer.parseInt(holder.tvQuantity.getText().toString());
+//                if (quantity > 0) {
+//                    // Add logic to add product to cart
+//                    Toast.makeText(v.getContext(), product.getName() + " (Qty: " + quantity + ") added to cart", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    Toast.makeText(v.getContext(), "Please select a quantity", Toast.LENGTH_SHORT).show();
+//                }
+//            });
+
             holder.btnAddToCart.setOnClickListener(v -> {
                 int quantity = Integer.parseInt(holder.tvQuantity.getText().toString());
                 if (quantity > 0) {
-                    // Add logic to add product to cart
-                    Toast.makeText(v.getContext(), product.getName() + " (Qty: " + quantity + ") added to cart", Toast.LENGTH_SHORT).show();
+                    Cart.getInstance().addItem(new CartItem(product, quantity));
+                    Toast.makeText(v.getContext(), product.getName() + " (Qty: " + quantity + ") added to cart",
+                            Toast.LENGTH_SHORT).show();
+                    // Reset quantity
+                    holder.tvQuantity.setText("0");
                 } else {
                     Toast.makeText(v.getContext(), "Please select a quantity", Toast.LENGTH_SHORT).show();
                 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="24dp"
-    android:background="@drawable/admin_bg_gradient"
+    android:background="@drawable/radiant_background"
     android:gravity="center">
 
     <!-- Welcome Text -->

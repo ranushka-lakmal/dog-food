@@ -38,10 +38,10 @@ public class UserProfileActivity extends AppCompatActivity {
 
         if (userDetails != null) {
             // userDetails[] order: [0]=email, [1]=password, [2]=location, [3]=paymentType
-            tvEmail.setText("Email: " + userDetails[0]);
-            tvPassword.setText("Password: " + userDetails[1]);
-            tvLocation.setText("Location: " + userDetails[2]);
-            tvPaymentType.setText("Payment Type: " + userDetails[3]);
+            tvEmail.setText(userDetails[0]);
+            tvPassword.setText(userDetails[1]);
+            tvLocation.setText(userDetails[2]);
+            tvPaymentType.setText(userDetails[3]);
         } else {
             Toast.makeText(this, "Failed to fetch user details!", Toast.LENGTH_SHORT).show();
             finish();

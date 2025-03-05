@@ -12,7 +12,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     private static final String DATABASE_NAME = "UserDB";
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 7;
     private static final String TABLE_USERS = "users";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_PASSWORD = "password";
@@ -71,12 +71,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + KEY_CAT_ID + " TEXT,"
             + KEY_CAT_NAME + " TEXT" + ")";
 
+// working code march 5    //
+//    @Override
+//    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+//        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+//        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CATEGORIES);
+//        onCreate(db);
+//    }
+//
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CATEGORIES);
-        onCreate(db);
+        if (oldVersion < 2) { // Add category_id column
+            db.execSQL("ALTER TABLE " + TABLE_PRODUCTS + " ADD COLUMN " + KEY_CATEGORY_ID + " TEXT");
+        }
     }
+
 
     public boolean addUser(String email, String password, String userType, String location, String paymentType) {
         SQLiteDatabase db = this.getWritableDatabase();

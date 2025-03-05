@@ -2,7 +2,7 @@
 
 # Dog Food Finder App
 
-<img width="365" alt="image" src="https://github.com/user-attachments/assets/56900d25-4c6f-4a4f-a382-d59a90ab2bf7" />
+<img width="348" alt="image" src="https://github.com/user-attachments/assets/56900d25-4c6f-4a4f-a382-d59a90ab2bf7" />
 
 <img width="348" alt="image" src="https://github.com/user-attachments/assets/dbe94878-641d-44c1-9a7c-8a1e99cda2fd" />
 

@@ -25,7 +25,7 @@
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to Our Shop!"
+        android:text="Welcome"
         android:textSize="24sp"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed" />
 
-    
+
 
     <!-- Your Order Cart Button -->
     <Button

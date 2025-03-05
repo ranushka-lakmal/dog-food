@@ -1,5 +1,7 @@
 package com.example.dogfoodapp;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,7 +52,13 @@ public class RegisterActivity extends AppCompatActivity {
             String paymentType = paymentTypeRadio.getText().toString();
 
             if (dbHelper.addUser(email, password, userType, location, paymentType)) {
-                Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show();
+                // Save email to SharedPreferences
+                SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
+                prefs.edit().putString("USER_EMAIL", email).apply();
+
+                // Redirect to WelcomeActivity
+                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(intent);
                 finish();
             } else {
                 Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show();

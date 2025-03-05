@@ -12,7 +12,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     private static final String DATABASE_NAME = "UserDB";
-    private static final int DATABASE_VERSION = 7;
+    private static final int DATABASE_VERSION = 9;
     private static final String TABLE_USERS = "users";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_PASSWORD = "password";
@@ -24,7 +24,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String KEY_CAT_ID = "cat_id";
     public static final String KEY_CAT_NAME = "cat_name";
 
-    // Add these constants
     public static final String TABLE_PRODUCTS = "products";
     public static final String KEY_PRODUCT_ID = "product_id";
     public static final String KEY_PRODUCT_NAME = "product_name";
@@ -61,7 +60,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL(CREATE_PRODUCTS_TABLE);
         db.execSQL(CREATE_CATEGORIES_TABLE);
-        //add execute
         db.execSQL(CREATE_USERS_TABLE);
 
     }
@@ -216,6 +214,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         int result = db.delete(TABLE_PRODUCTS,
                 KEY_PRODUCT_ID + " = ?", new String[]{productId});
+        return result > 0;
+    }
+
+    public String[] getUserDetails(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(
+                TABLE_USERS,
+                new String[]{KEY_EMAIL, KEY_PASSWORD, KEY_LOCATION, KEY_PAYMENT_TYPE},
+                KEY_EMAIL + "=?",
+                new String[]{email},
+                null, null, null
+        );
+
+        if (cursor != null && cursor.moveToFirst()) {
+            String[] details = {
+                    cursor.getString(0), // Email
+                    cursor.getString(1), // Password
+                    cursor.getString(2), // Location
+                    cursor.getString(3)  // Payment Type
+            };
+            cursor.close();
+            return details;
+        }
+        return null;
+    }
+
+
+    public boolean updateUser(String email, String name, String password, String location, String paymentType) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_EMAIL, name);
+        values.put(KEY_PASSWORD, password);
+        values.put(KEY_LOCATION, location);
+        values.put(KEY_PAYMENT_TYPE, paymentType);
+
+        int result = db.update(TABLE_USERS, values, KEY_EMAIL + "=?", new String[]{email});
         return result > 0;
     }
 

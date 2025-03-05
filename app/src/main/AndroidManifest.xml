@@ -31,7 +31,7 @@
         <activity android:name=".ManageProductActivity" android:exported="false" />
         <activity android:name=".BuyProductActivity" android:exported="false" />
         <activity android:name=".ViewCartActivity" />
-
+        <activity android:name=".UserProfileActivity" />
 
 
     </application>

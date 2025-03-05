@@ -1,95 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
     android:background="@drawable/radiant_background"
-    android:gravity="center">
+    tools:context=".WelcomeActivity">
+
+    <!-- User Icon -->
+    <ImageButton
+        android:id="@+id/btnUserProfile"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_user"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
 
     <!-- Welcome Text -->
     <TextView
+
+        android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome User!"
-        android:textColor="@color/white"
-        android:textSize="28sp"
+        android:text="Welcome"
+        android:textSize="24sp"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:letterSpacing="0.05"
-        android:layout_marginBottom="32dp"/>
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Buttons Container -->
-    <GridLayout
-        android:layout_width="match_parent"
+
+    <!-- Buy Product Button -->
+    <Button
+        android:id="@+id/btnBuyProduct"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:rowCount="1"
-        android:alignmentMode="alignMargins"
-        android:columnOrderPreserved="false"
-        android:padding="1dp">
+        android:text="Buy Product"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:drawableLeft="@drawable/buy"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:drawablePadding="10dp"
+        android:background="@drawable/button_background_new"
+        android:elevation="4dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@id/welcomeText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed" />
 
-        <!-- Buy Product Card -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="8dp">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnBuyProduct"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Buy Product"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:textColor="@color/white"
-                android:backgroundTint="@color/green_500"
-                android:icon="@drawable/buy"
-            app:iconGravity="textTop"
-            app:iconSize="64dp"
-            app:iconPadding="8dp"
-            app:iconTint="@color/white"
-            app:cornerRadius="16dp"
-            android:gravity="center"
-            android:padding="16dp"/>
 
-        </androidx.cardview.widget.CardView>
+    <!-- Your Order Cart Button -->
+    <Button
+        android:id="@+id/btnOrderCart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Your Order Cart"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:drawableLeft="@drawable/cart"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:drawablePadding="10dp"
+        android:background="@drawable/button_background_new"
+        android:elevation="4dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/btnBuyProduct"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed" />
 
-        <!-- View Order Cart Card -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="8dp">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnViewCart"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="View Order Cart"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:textColor="@color/white"
-                android:backgroundTint="@color/blue_500"
-                android:icon="@drawable/cart"
-            app:iconGravity="textTop"
-            app:iconSize="64dp"
-            app:iconPadding="8dp"
-            app:iconTint="@color/white"
-            app:cornerRadius="16dp"
-            android:gravity="center"
-            android:padding="16dp"/>
-
-        </androidx.cardview.widget.CardView>
-
-    </GridLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Dog Food App</string>
+    <string name="nameHint">Name</string>
+    <string name="passwordHint">Password</string>
+    <string name="locationHint">Location</string>
+    <string name="paymentTypeHint">Payment Type</string>
+    <string name="save">Save</string>
 </resources>

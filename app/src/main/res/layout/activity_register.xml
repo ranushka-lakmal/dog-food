@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/register"
+        android:src="@drawable/admin_bg_gradient"
         android:scaleType="centerCrop"
         android:contentDescription="App background"/>
 
@@ -28,8 +28,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/cardview_dark_background"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/rounded_card"
             android:padding="16dp">
+
 
             <EditText
                 android:id="@+id/etRegEmail"
@@ -150,6 +152,11 @@
                 android:elevation="4dp"
                 android:paddingVertical="12dp"/>
 
+
         </LinearLayout>
+
+
     </ScrollView>
+
+
 </FrameLayout>

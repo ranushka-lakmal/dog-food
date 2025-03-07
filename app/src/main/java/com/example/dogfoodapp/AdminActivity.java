@@ -36,6 +36,15 @@ public class AdminActivity extends AppCompatActivity {
         findViewById(R.id.btnManageProduct).setOnClickListener(v -> {
             startActivity(new Intent(AdminActivity.this, ManageProductActivity.class));
         });
+
+        findViewById(R.id.btnManageEducation).setOnClickListener(v -> {
+            startActivity(new Intent(AdminActivity.this, EducationalContentActivity.class));
+        });
+
+        findViewById(R.id.btnManageEducation).setOnClickListener(v -> {
+            startActivity(new Intent(AdminActivity.this, ManageEducationalContentActivity.class));
+        });
+
 //        btnManageCategories.setOnClickListener(v -> {
 //            startActivity(new Intent(AdminActivity.this, ManageCategoryActivity.class));
 //        });

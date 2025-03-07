@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,7 +9,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/register"
+        android:src="@drawable/admin_bg_gradient"
         android:scaleType="centerCrop"
         android:contentDescription="App background"/>
 
@@ -16,21 +17,21 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:background="#80000000"/>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:padding="44dp">
+        android:padding="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/cardview_dark_background"
-            android:padding="16dp"
-            android:layout_marginTop="100dp">
+            android:layout_marginTop="80dp"
+            android:background="@drawable/rounded_card"
+            android:padding="16dp">
+
 
             <EditText
                 android:id="@+id/etRegEmail"
@@ -73,6 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="User"
+                    android:tag="User"
                     android:textColor="#FFFFFF"
                     android:buttonTint="#FFFFFF"/>
 
@@ -82,6 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Admin"
+                    android:tag="Admin"
                     android:textColor="#FFFFFF"
                     android:buttonTint="#FFFFFF"/>
             </RadioGroup>
@@ -96,39 +99,47 @@
                 android:backgroundTint="#FFFFFF"
                 android:layout_marginTop="16dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Payment Type"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp"/>
-
-            <RadioGroup
-                android:id="@+id/rgPaymentType"
+            <LinearLayout
+                android:id="@+id/paymentTypeContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_marginTop="16dp">
 
-                <RadioButton
-                    android:id="@+id/radioVisa"
-                    android:layout_width="0dp"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Visa Card"
+                    android:text="Payment Type"
                     android:textColor="#FFFFFF"
-                    android:buttonTint="#FFFFFF"/>
+                    android:textSize="16sp"/>
 
-                <RadioButton
-                    android:id="@+id/radioMaster"
-                    android:layout_width="0dp"
+                <RadioGroup
+                    android:id="@+id/rgPaymentType"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Master Card"
-                    android:textColor="#FFFFFF"
-                    android:buttonTint="#FFFFFF"/>
-            </RadioGroup>
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <RadioButton
+                        android:id="@+id/radioVisa"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Visa Card"
+                        android:textColor="#FFFFFF"
+                        android:buttonTint="#FFFFFF"/>
+
+                    <RadioButton
+                        android:id="@+id/radioMaster"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Master Card"
+                        android:textColor="#FFFFFF"
+                        android:buttonTint="#FFFFFF"/>
+                </RadioGroup>
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btnRegister"
@@ -141,6 +152,11 @@
                 android:elevation="4dp"
                 android:paddingVertical="12dp"/>
 
+
         </LinearLayout>
+
+
     </ScrollView>
+
+
 </FrameLayout>

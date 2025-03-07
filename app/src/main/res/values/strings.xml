@@ -5,4 +5,13 @@
     <string name="locationHint">Location</string>
     <string name="paymentTypeHint">Payment Type</string>
     <string name="save">Save</string>
+
+    <string-array name="payment_types">
+        <item>Visa</item>
+        <item>MasterCard</item>
+    </string-array>
+    <string name="confirm_changes_title">Confirm Changes</string>
+    <string name="confirm_changes_message">Are you sure you want to update your profile details?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

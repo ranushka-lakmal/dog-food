@@ -8,11 +8,16 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.dogfoodapp.EducationalContent;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     private static final String DATABASE_NAME = "UserDB";
-    private static final int DATABASE_VERSION = 9;
+    private static final int DATABASE_VERSION = 11;
     private static final String TABLE_USERS = "users";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_PASSWORD = "password";
@@ -30,6 +35,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String KEY_CATEGORY_ID = "category_id";
     public static final String KEY_PRICE = "price";
     public static final String KEY_QUANTITY = "quantity";
+
+    private static final String TABLE_EDUCATION = "education";
+    private static final String KEY_EDU_ID = "edu_id";
+    private static final String KEY_EDU_TYPE = "type";
+    private static final String KEY_EDU_TITLE = "title";
+    private static final String KEY_EDU_CONTENT = "content";
+    private static final String KEY_EDU_BREED = "breed";
+    private static final String KEY_EDU_LIFE_STAGE = "life_stage";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -57,11 +70,55 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + KEY_PRICE + " REAL,"
                 + KEY_QUANTITY + " INTEGER" + ")";
 
+        String CREATE_EDUCATION_TABLE = "CREATE TABLE " + TABLE_EDUCATION + "("
+                + KEY_EDU_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + KEY_EDU_TYPE + " TEXT,"
+                + KEY_EDU_TITLE + " TEXT,"
+                + KEY_EDU_CONTENT + " TEXT,"
+                + KEY_EDU_BREED + " TEXT,"
+                + KEY_EDU_LIFE_STAGE + " TEXT)";
+        db.execSQL(CREATE_EDUCATION_TABLE);
+
 
         db.execSQL(CREATE_PRODUCTS_TABLE);
         db.execSQL(CREATE_CATEGORIES_TABLE);
         db.execSQL(CREATE_USERS_TABLE);
 
+    }
+
+    public long addEducationalContent(String type, String title, String content,
+                                      String breed, String lifeStage) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_EDU_TYPE, type);
+        values.put(KEY_EDU_TITLE, title);
+        values.put(KEY_EDU_CONTENT, content);
+        values.put(KEY_EDU_BREED, breed);
+        values.put(KEY_EDU_LIFE_STAGE, lifeStage);
+        return db.insert(TABLE_EDUCATION, null, values);
+    }
+
+    public List<EducationalContent> getAllEducationalContent() {
+        List<EducationalContent> contentList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_EDUCATION,
+                null, null, null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                EducationalContent content = new EducationalContent(
+                        cursor.getString(cursor.getColumnIndexOrThrow(KEY_EDU_TITLE)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(KEY_EDU_TYPE)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(KEY_EDU_CONTENT)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(KEY_EDU_BREED)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(KEY_EDU_LIFE_STAGE))
+                );
+                contentList.add(content);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return contentList;
     }
 
     private static final String CREATE_CATEGORIES_TABLE = "CREATE TABLE " + TABLE_CATEGORIES + "("
@@ -80,8 +137,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if (oldVersion < 2) { // Add category_id column
-            db.execSQL("ALTER TABLE " + TABLE_PRODUCTS + " ADD COLUMN " + KEY_CATEGORY_ID + " TEXT");
+        if (oldVersion < 11) { // Update version check
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_EDUCATION);
+            onCreate(db);
         }
     }
 
@@ -251,6 +309,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         int result = db.update(TABLE_USERS, values, KEY_EMAIL + "=?", new String[]{email});
         return result > 0;
+    }
+
+    public boolean deleteEducationalContent(String title) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_EDUCATION, KEY_EDU_TITLE + "=?", new String[]{title}) > 0;
+    }
+
+    public boolean updateEducationalContent(String oldTitle, EducationalContent newContent) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_EDU_TYPE, newContent.getType());
+        values.put(KEY_EDU_TITLE, newContent.getTitle());
+        values.put(KEY_EDU_CONTENT, newContent.getContent());
+        values.put(KEY_EDU_BREED, newContent.getBreed());
+        values.put(KEY_EDU_LIFE_STAGE, newContent.getLifeStage());
+
+        return db.update(TABLE_EDUCATION, values, KEY_EDU_TITLE + "=?",
+                new String[]{oldTitle}) > 0;
+    }
+
+    public boolean updateUserProfile(String email, String location, String paymentType) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_LOCATION, location);
+        values.put(KEY_PAYMENT_TYPE, paymentType);
+
+        return db.update(TABLE_USERS, values, KEY_EMAIL + "=?",
+                new String[]{email}) > 0;
     }
 
 }

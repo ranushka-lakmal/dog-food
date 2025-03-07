@@ -32,6 +32,10 @@ public class WelcomeActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        findViewById(R.id.btnEducationalContent).setOnClickListener(v -> {
+            startActivity(new Intent(WelcomeActivity.this, ViewEducationalActivity.class));
+        });
+
         ImageButton btnProfile = findViewById(R.id.btnUserProfile); // Ensure this ID matches your XML
         btnProfile.setOnClickListener(v -> {
             // Retrieve email from SharedPreferences

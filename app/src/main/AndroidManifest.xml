@@ -32,6 +32,9 @@
         <activity android:name=".BuyProductActivity" android:exported="false" />
         <activity android:name=".ViewCartActivity" />
         <activity android:name=".UserProfileActivity" />
+        <activity android:name=".EducationalContentActivity"/>
+        <activity android:name=".ViewEducationalActivity"/>
+        <activity android:name=".ManageEducationalContentActivity"/>
 
 
     </application>

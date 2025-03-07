@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -21,10 +22,8 @@
             <ImageView
                 android:layout_width="72dp"
                 android:layout_height="72dp"
-                android:src="@drawable/ic_person"
-                android:tint="@color/white"
+                android:src="@drawable/users"
                 android:layout_gravity="center"
-                app:tint="@color/white"
                 android:contentDescription="Profile icon"/>
 
             <TextView
@@ -64,7 +63,6 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_email"
-                        android:tint="@color/primary"
                         app:tint="@color/primary"
                         android:contentDescription="Email icon"/>
 
@@ -101,7 +99,6 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_password"
-                        android:tint="@color/primary"
                         app:tint="@color/primary"
                         android:contentDescription="Password icon"/>
 
@@ -138,7 +135,6 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_location"
-                        android:tint="@color/primary"
                         app:tint="@color/primary"
                         android:contentDescription="Location icon"/>
 
@@ -155,12 +151,14 @@
                             android:textColor="@color/grey_600"
                             android:textSize="14sp"/>
 
-                        <TextView
-                            android:id="@+id/tvLocation"
+                        <EditText
+                            android:id="@+id/etLocation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="16sp"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/black"
+                            android:inputType="text"
+                            android:hint="Enter location"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -168,13 +166,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="24dp">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_payment"
-                        android:tint="@color/primary"
                         app:tint="@color/primary"
                         android:contentDescription="Payment icon"/>
 
@@ -191,15 +189,23 @@
                             android:textColor="@color/grey_600"
                             android:textSize="14sp"/>
 
-                        <TextView
-                            android:id="@+id/tvPaymentType"
+                        <Spinner
+                            android:id="@+id/spinnerPaymentType"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"/>
+                            android:backgroundTint="@color/primary"/>
                     </LinearLayout>
                 </LinearLayout>
 
+                <!-- Save Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Save Changes"
+                    app:backgroundTint="@color/green_500"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="8dp"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

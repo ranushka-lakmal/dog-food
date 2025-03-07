@@ -4,10 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/login"
+    android:background="@drawable/admin_bg_gradient"
     android:padding="46dp"
     android:gravity="center_horizontal">
 
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/image11"
+        android:scaleType="centerCrop"
+        android:contentDescription="App Logo"
+        android:layout_marginBottom="0dp"/>
     <!-- Email Input -->
     <EditText
         android:id="@+id/etEmail"
@@ -15,13 +22,13 @@
         android:layout_height="wrap_content"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:background="@color/cardview_dark_background"
+        android:background="@drawable/rounded_card"
         android:padding="16dp"
         android:textColor="@android:color/white"
         android:textColorHint="#CCFFFFFF"
         android:drawableLeft="@drawable/user"
         android:drawablePadding="6dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="30dp"
         android:layout_marginHorizontal="24dp"
         android:elevation="4dp"/>
 
@@ -32,7 +39,7 @@
         android:layout_height="wrap_content"
         android:hint="Password"
         android:inputType="textPassword"
-        android:background="@color/cardview_dark_background"
+        android:background="@drawable/rounded_card"
         android:padding="16dp"
         android:drawableLeft="@drawable/pwd"
         android:drawablePadding="6dp"

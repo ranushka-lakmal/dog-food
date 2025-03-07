@@ -7,10 +7,20 @@
     android:padding="20dp"
     android:background="@drawable/admin_bg_gradient">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add New Product"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:layout_marginBottom="24dp"/>
 
         <!-- Product ID -->
         <com.google.android.material.textfield.TextInputLayout
@@ -18,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+
             app:hintEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -25,8 +36,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Product ID"
+                android:background="@drawable/rounded_background"
                 android:textStyle="bold"
-                android:background="@color/white"
                 android:inputType="textCapCharacters"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -44,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Product Name"
                 android:textStyle="bold"
-                android:background="@color/white"
+                android:background="@drawable/rounded_background"
                 android:inputType="textCapWords"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -53,6 +64,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:text="Select Category"
             android:textColor="@color/white"
             android:textSize="16sp"
@@ -64,7 +76,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:background="@drawable/rounded_background"
+            android:layout_marginBottom="10dp">
 
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinnerCategory"
@@ -87,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Price"
                 android:textStyle="bold"
-                android:background="@color/white"
+                android:background="@drawable/rounded_background"
                 android:inputType="numberDecimal"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -105,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Quantity"
                 android:textStyle="bold"
-                android:background="@color/white"
+                android:background="@drawable/rounded_background"
                 android:inputType="number"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -118,6 +131,7 @@
             android:text="Add Product"
             app:cornerRadius="8dp"
             app:backgroundTint="@color/green_500"
+
             android:textColor="@color/white"
             android:textSize="18sp"
             android:paddingVertical="12dp"/>
